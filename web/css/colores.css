@@ -25,3 +25,10 @@ article {
 #juego * {
   margin: auto;
 }
+table{
+    border: 1px outset gray;
+}
+td{
+    border: 1px inset gray;
+    padding: 3px;
+}
