@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+  }
+  section {
+    font-family: "Press Start 2P", cursive;
+    position: relative;
+    display: inline-block;
+  }
+  section, section * {
+    box-sizing: border-box;
+  }
+  h2{
+    font-size: 2em;
+  }
+  article {
+    padding: 0;
+  }

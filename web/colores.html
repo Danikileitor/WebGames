@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/colores.css">
+    <title>[DNK]{WEB}[GAMES] - Colores</title>
+</head>
+
+<body onload='load()'>
+    <header id="inicio">
+        <img src="img/general/logo.ico">
+        <marquee behavior="alternate">
+            <h1>[DNK]{WEB}[GAMES]</h1>
+        </marquee>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html" title="Inicio"><img src="img/general/home.svg" width="15"> Home</a>
+            </li>
+            <li class="juegos">
+                <a href="#" title="Juegos"><img src="img/general/joystick.svg" width="15"> Juegos</a>
+                <a href="RNGversus.html" title="RNGversus" class="contenido">RNGversus</a>
+            </li>
+        </ul>
+        <audio id="audio" controls loop autoplay>
+            <source src="audio/helio-bar.wav" type="audio/wav" />
+        </audio>
+    </nav>
+    <section>
+        <article>
+            <h2 contentEditable="true">Inserte título grasioso</h2>
+            <div id="juego">
+                <table border=1>
+                    <tr>
+                        <td id="recordtexto">RECORD: </td>
+                        <td id="recordfondo"><input id="record" type="number" style="text-align:right;" value='0'
+                                readonly>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div id="div1" style="display:none;">
+                    <button onclick="comenzar()">Comenzar</button>
+                </div>
+                <div id="div2" style="display:none;">
+                    <table border=1>
+                        <tr>
+                            <td id='11' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                            <td id='21' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                            <td id='31' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                        </tr>
+                        <tr>
+                            <td id='12' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                            <td id='22' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                            <td id='32' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                        </tr>
+                        <tr>
+                            <td id='13' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                            <td id='23' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                            <td id='33' width=50 height=50 onmouseover="over(this)" onmouseout="out(this)"></td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <table border=1>
+                    <tr>
+                        <td id="puntostexto">Puntuación: </td>
+                        <td id="contador"><input id="puntos" type="number" style="text-align:right;" value='0' readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="tiempotexto" colspan=2 align='center'>¿Comenzar?</td>
+                    </tr>
+                </table>
+                <input id="temporizador" type="number" style="text-align:right;" value='0' readonly hidden>
+                <input id="temporizadorfin" type="number" style="text-align:right;" value='0' readonly hidden>
+            </div>
+            <h4>Por cada vez que aparezca el color azul sumas un punto y por cada vez que aparezca el color rojo pierdes
+                un punto</h4>
+        </article>
+    </section>
+    <aside>
+        <a href="#inicio"><img src="img/general/up.svg" width="50px"></a>
+    </aside>
+    <footer>
+        <figure class="logos">
+            <a href="https://github.com/Danikileitor" alt="GitHub"><img src="img/rrss/github.svg"></a>
+            <a href="https://twitter.com/danikileitor" alt="Twitter"><img src="img/rrss/twitter.svg"></a>
+            <a href="https://www.reddit.com/user/Danikileitor/" alt="Reddit"><img src="img/rrss/reddit.svg"></a>
+            <a href="https://www.youtube.com/Danikileitor" alt="YouTube"><img src="img/rrss/youtube.svg"></a>
+        </figure>
+        <p>
+            Copyright &copy; 2023 Daniel Marcos Guerra Gómez - All Rights Reserved.
+        </p>
+    </footer>
+</body>
+
+<script type="text/javascript" src="js/principal.js"></script>
+<script type="text/javascript" src="js/colores.js"></script>
+
+</html>
