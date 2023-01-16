@@ -43,6 +43,12 @@ function over(obj) {
   if (aleatorio == 0) {
     document.getElementById("puntos").value--;
   }
+  if (document.getElementById("puntos").value < "10") {
+    document.getElementById("juego").style.background = "white";
+  }
+  if (document.getElementById("puntos").value == "10") {
+    document.getElementById("juego").style.background = "lightblue";
+  }
 }
 function out(obj) {
   var aleatorio = Math.round(Math.random() * 9);
@@ -87,10 +93,17 @@ function out(obj) {
   if (aleatorio == 0) {
     document.getElementById("puntos").value--;
   }
+  if (document.getElementById("puntos").value < "10") {
+    document.getElementById("juego").style.background = "white";
+  }
+  if (document.getElementById("puntos").value == "10") {
+    document.getElementById("juego").style.background = "lightblue";
+  }
 }
 function comenzar() {
   document.getElementById("div1").style.display = "none";
   document.getElementById("div2").style.display = "";
+  document.getElementById("juego").style.background = "white";
   document.getElementById("puntostexto").style.background = "white";
   document.getElementById("contador").style.background = "white";
   document.getElementById("tiempotexto").style.background = "white";
