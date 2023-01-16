@@ -15,3 +15,12 @@ h2 {
 article {
   padding: 0;
 }
+#juego {
+  border: 5px solid black;
+  border-radius: 5px;
+  width: fit-content;
+  margin: auto;
+}
+#juego * {
+  margin: auto;
+}
