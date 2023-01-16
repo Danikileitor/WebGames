@@ -24,6 +24,9 @@ body{
     position: relative;
     margin: 0;
 }
+a, a img{
+    cursor: url(../cur/pointer.cur), pointer;
+}
 header{
     position: relative;
     height: 8%;
@@ -79,7 +82,6 @@ nav li{
     color: yellow;
     padding: 4px 10px 0px 4px;
     height: 100%;
-    cursor: url(../cursores/charmander.cur), pointer;
 }
 nav li:hover{
     background-color: yellow;
@@ -87,10 +89,8 @@ nav li:hover{
 }
 nav li:hover img{
     animation: 1s rotar infinite;
-    cursor: url(../cursores/charmander.cur), pointer;
 }
 nav a{
-    cursor: url(../cursores/charmander.cur), pointer;
     text-decoration: none;
     color: inherit;
     font-weight: bold;
@@ -141,9 +141,6 @@ aside{
 aside:hover{
     animation: 0.5s subir infinite alternate;
 }
-aside img{
-    cursor: url(../cursores/squirtle.cur),pointer;
-}
 footer{
     position: absolute;
     height: auto;
@@ -157,9 +154,6 @@ footer{
 footer p{
     font-family: Arial;
     text-align: center;
-}
-.logos img{
-    cursor: url(../cursores/bulbasur.cur),pointer;
 }
 .logos, .logos img{
     display: flex;
