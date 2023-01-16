@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 *{
-    cursor: url(../cursores/pokeball.cur), auto;
+    cursor: url(../cur/cursor.cur), auto;
     user-select: none;
     scroll-behavior: smooth;
 }
@@ -32,6 +32,13 @@ header{
     color: yellow;
     border-bottom: 0;
     padding: 20px;
+    display: flex;
+    align-items: center;
+}
+header img{
+    width: 100px;
+    margin-bottom: -20px;
+    margin-top: -10px;
 }
 h1{
     display: inline;
