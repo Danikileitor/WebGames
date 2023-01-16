@@ -95,7 +95,7 @@ nav a{
     color: inherit;
     font-weight: bold;
 }
-.juegos{
+.desplegable{
     display: inline-block;
     position: relative;
 }
@@ -108,11 +108,11 @@ nav a{
     border-top: 0;
     margin-left: -4px;
 }
-.juegos .contenido:nth-child(2){
+.desplegable .contenido:nth-child(2){
     margin-top: 1px;
     border: 1px solid black;
 }
-.juegos:hover .contenido{
+.desplegable:hover .contenido{
     display: block;
     padding: 5px;
     text-decoration: none;
