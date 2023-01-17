@@ -1,0 +1,62 @@
+body {
+  text-align: center;
+}
+section {
+  position: relative;
+  padding: 2ch;
+}
+section,
+section * {
+  box-sizing: border-box;
+}
+article {
+  padding: 0;
+}
+#minisix {
+  border: 5px solid black;
+  border-radius: 5px;
+  margin: auto;
+  padding: 1ch;
+}
+#minisix * {
+  margin-left: auto;
+  margin-right: auto;
+}
+#tabla2,
+#tabla2 td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#tabla3,
+#tabla3 td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#tabla4,
+#tabla4 td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#tabla5,
+#tabla5 td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#tabla6,
+#tabla6 td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#tabla7,
+#tabla7 td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#tabla3,
+#tabla4,
+#tabla5,
+#tabla6 {
+  display: inline-flex;
+  vertical-align: top;
+  margin: 0 5px 0 5px;
+}
