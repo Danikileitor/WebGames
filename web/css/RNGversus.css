@@ -8,7 +8,6 @@ section {
 }
 section, section * {
   box-sizing: border-box;
-  display: flex;
 }
 h2{
   font-size: 2em;
