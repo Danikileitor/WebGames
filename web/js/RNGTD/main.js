@@ -9,38 +9,41 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 
 const mapa1 = new Image();
 mapa1.onload = () => {
-  c.drawImage(mapa1, 0, 0, canvas.width, canvas.height);
+  animate();
 };
 mapa1.src = "assets/RNGTD/maps/mapa1.png";
 
-/*
-[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":-59.3333333333333,
-                         "y":280
-                        }, 
-                        {
-                         "x":166,
-                         "y":279.333333333333
-                        }, 
-                        {
-                         "x":165.333333333333,
-                         "y":86.6666666666667
-                        }, 
-                        {
-                         "x":422,
-                         "y":87.3333333333333
-                        }, 
-                        {
-                         "x":422,
-                         "y":248
-                        }, 
-                        {
-                         "x":694,
-                         "y":248
-                        }]
-*/
+class Enemy {
+  constructor({
+    position = {
+      x: 0,
+      y: 0,
+    },
+  }) {
+    this.position = position;
+    this.width = 100;
+    this.height = 100;
+  }
+  draw() {
+    c.fillStyle = "red";
+    c.fillRect(this.position.x, this.position.y, this.width, this.height);
+  }
+  update() {
+    this.draw();
+    this.position.x++;
+
+    const camino = camino1[0];
+    const yDistance = camino.y - this.position.y;
+    const xDistance = camino.x - this.position.x;
+    const angle = Math.atan2(yDistance, xDistance);
+  }
+}
+
+const enemy = new Enemy({ position: { x: 200, y: 400 } });
+
+function animate() {
+  c.drawImage(mapa1, 0, 0, canvas.width, canvas.height);
+  enemy.update();
+
+  requestAnimationFrame(animate);
+}

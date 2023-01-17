@@ -1,4 +1,4 @@
-const mapa1 = [
+const camino1 = [
     {
      "x":0,
      "y":0
