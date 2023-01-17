@@ -23,6 +23,11 @@ class Enemy {
     this.position = position;
     this.width = 100;
     this.height = 100;
+    this.waypoint = 1;
+    this.center = {
+      x: this.position.x + this.width / 2,
+      y: this.position.y + this.height / 2,
+    };
   }
   draw() {
     c.fillStyle = "red";
@@ -30,20 +35,41 @@ class Enemy {
   }
   update() {
     this.draw();
-    this.position.x++;
 
-    const camino = camino1[0];
-    const yDistance = camino.y - this.position.y;
-    const xDistance = camino.x - this.position.x;
+    const camino = camino1[this.waypoint];
+    const xDistance = camino.x - this.center.x;
+    const yDistance = camino.y - this.center.y;
     const angle = Math.atan2(yDistance, xDistance);
+    this.position.x += Math.cos(angle);
+    this.position.y += Math.sin(angle);
+    this.center = {
+      x: this.position.x + this.width / 2,
+      y: this.position.y + this.height / 2,
+    };
+
+    if (
+      Math.round(this.center.x) === Math.round(camino.x) &&
+      Math.round(this.center.y) === Math.round(camino.y) &&
+      camino1.length - 1
+    ) {
+      this.waypoint++;
+    }
   }
 }
 
-const enemy = new Enemy({ position: { x: 200, y: 400 } });
+const enemies = [];
+for (let i = 1; i < 10; i++) {
+  const xOffset = i * 150;
+  enemies.push(
+    new Enemy({ position: { x: camino1[1].x - xOffset, y: camino1[1].y } })
+  );
+}
 
 function animate() {
   c.drawImage(mapa1, 0, 0, canvas.width, canvas.height);
-  enemy.update();
+  enemies.forEach((enemy) => {
+    enemy.update();
+  });
 
   requestAnimationFrame(animate);
 }
