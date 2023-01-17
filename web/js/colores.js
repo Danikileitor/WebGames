@@ -1,5 +1,6 @@
 function load() {
   document.getElementById("div1").style.display = "";
+  document.getElementById("record").value = localStorage.getItem("record");
 }
 function over(obj) {
   var aleatorio = Math.round(Math.random() * 9);
@@ -26,11 +27,10 @@ function over(obj) {
     document.getElementById("div1").style.display = "";
     document.getElementById("tiempotexto").innerHTML = "¿Reintentar?";
     if (
-      document.getElementById("record").value <=
-      document.getElementById("puntos").value
+      document.getElementById("record").value <= document.getElementById("puntos").value
     ) {
-      document.getElementById("record").value =
-        document.getElementById("puntos").value;
+      document.getElementById("record").value = document.getElementById("puntos").value;
+      localStorage.setItem("record", document.getElementById("record").value);
       if (document.getElementById("record").value >= 100) {
         document.getElementById("recordtexto").style.background = "red";
         document.getElementById("recordfondo").style.background = "red";
