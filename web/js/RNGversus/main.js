@@ -9,11 +9,11 @@ let controllerIndex = null;
 const gravity = 0.7;
 const background = new Sprite({
   position: { x: 0, y: 0 },
-  imgSrc: "./assets/RNGversus/oak_woods/background.png",
+  imgSrc: "./assets/oak_woods/background.png",
 });
 const shop = new Sprite({
   position: { x: 625, y: 128 },
-  imgSrc: "./assets/RNGversus/oak_woods/shop.png",
+  imgSrc: "./assets/oak_woods/shop.png",
   scale: 2.75,
   framesMax: 6,
 });
