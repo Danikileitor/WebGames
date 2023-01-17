@@ -15,6 +15,7 @@ h2{
 article {
   margin: auto;
   padding: 0;
+  padding-bottom: inherit;
 }
 .borde {
   border: 5px solid black;
