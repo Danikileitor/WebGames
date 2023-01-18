@@ -58,6 +58,16 @@ function animate() {
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i];
     enemy.update();
+
+    if (enemy.position.x > canvas.width) {
+      enemies.splice(i, 1);
+    }
+  }
+
+  //evento cuando hay 0 enemigos
+  if (enemies.length === 0) {
+    enemyCantidad += 2;
+    spawnEnemies(enemyCantidad);
   }
 
   sitios.forEach((tile) => {
@@ -94,12 +104,6 @@ function animate() {
           if (enemyIndex > -1) {
             enemies.splice(enemyIndex, 1);
           }
-        }
-
-        //evento cuando hay 0 enemigos
-        if (enemies.length === 0) {
-          enemyCantidad += 2;
-          spawnEnemies(enemyCantidad);
         }
 
         torre.proyectiles.splice(i, 1);

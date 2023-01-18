@@ -42,6 +42,8 @@ class Enemy {
     };
     this.radio = 50;
     this.vida = 100;
+    this.velocidad = { x: 0, y: 0 };
+    this.rapidez = 10;
   }
   draw() {
     c.fillStyle = "red";
@@ -69,16 +71,21 @@ class Enemy {
     const xDistance = camino.x - this.center.x;
     const yDistance = camino.y - this.center.y;
     const angle = Math.atan2(yDistance, xDistance);
-    this.position.x += Math.cos(angle);
-    this.position.y += Math.sin(angle);
+    this.velocidad.x = Math.cos(angle) * this.rapidez;
+    this.velocidad.y = Math.sin(angle) * this.rapidez;
+    this.position.x += this.velocidad.x;
+    this.position.y += this.velocidad.y;
+
     this.center = {
       x: this.position.x + this.width / 2,
       y: this.position.y + this.height / 2,
     };
 
     if (
-      Math.round(this.center.x) === Math.round(camino.x) &&
-      Math.round(this.center.y) === Math.round(camino.y) &&
+      Math.abs(Math.round(this.center.x) - Math.round(camino.x)) <
+        Math.abs(this.velocidad.x) &&
+      Math.abs(Math.round(this.center.y) - Math.round(camino.y)) <
+        Math.abs(this.velocidad.y) &&
       camino1.length - 1
     ) {
       this.waypoint++;
@@ -96,7 +103,7 @@ class Proyectil {
       y: this.position.y + this.radio,
     };
     this.enemy = enemy;
-    this.aceleracion = 5;
+    this.rapidez = 5;
   }
   draw() {
     c.beginPath();
@@ -111,8 +118,8 @@ class Proyectil {
       this.enemy.center.y - this.center.y,
       this.enemy.center.x - this.center.x
     );
-    this.velocity.x = Math.cos(angle) * this.aceleracion;
-    this.velocity.y = Math.sin(angle) * this.aceleracion;
+    this.velocity.x = Math.cos(angle) * this.rapidez;
+    this.velocity.y = Math.sin(angle) * this.rapidez;
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
   }
