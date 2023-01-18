@@ -146,8 +146,8 @@ canvas.addEventListener("click", (event) => {
 });
 
 window.addEventListener("mousemove", (event) => {
-  mouse.x = event.clientX;
-  mouse.y = event.clientY;
+  mouse.x = event.clientX - document.getElementById("RNGTD").getBoundingClientRect().left;
+  mouse.y = event.clientY - document.getElementById("RNGTD").getBoundingClientRect().top;
 
   for (let i = 0; i < sitios.length; i++) {
     const tile = sitios[i];
