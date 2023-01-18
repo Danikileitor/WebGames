@@ -58,7 +58,28 @@ function animate() {
   });
 
   torres.forEach((torre) => {
-    torre.draw();
+    torre.update();
+    torre.target = null;
+    const validEnemies = enemies.filter((enemy) => {
+      const xDiferencia = enemy.center.x - torre.center.x;
+      const yDiferencia = enemy.center.y - torre.center.y;
+      const distancia = Math.hypot(xDiferencia, yDiferencia);
+      return distancia < enemy.radio + torre.rango;
+    });
+    torre.target = validEnemies[0];
+
+    for (let i = torre.proyectiles.length - 1; i >= 0; i--) {
+      const proyectil = torre.proyectiles[i];
+
+      proyectil.update();
+
+      const xDiferencia = proyectil.enemy.center.x - proyectil.position.x;
+      const yDiferencia = proyectil.enemy.center.y - proyectil.position.y;
+      const distancia = Math.hypot(xDiferencia, yDiferencia);
+      if (distancia < proyectil.enemy.radio + proyectil.radio) {
+        torre.proyectiles.splice(i, 1);
+      }
+    }
   });
 
   requestAnimationFrame(animate);
