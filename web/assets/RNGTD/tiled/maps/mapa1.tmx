@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="40" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="40" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="4">
  <editorsettings>
   <export target="mapa1." format="js"/>
  </editorsettings>
@@ -61,7 +61,11 @@
 659,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="3" name="Camino"/>
+ <objectgroup id="3" name="Camino">
+  <object id="3" x="2" y="2">
+   <polyline points="0,0 -59.3333,280 166,279.333 165.333,86.6667 422,87.3333 422,248 694,248"/>
+  </object>
+ </objectgroup>
  <layer id="4" name="LugarDeConstruccion" width="40" height="24">
   <data encoding="csv">
 37,0,37,0,37,0,37,0,37,0,37,0,37,0,37,0,37,0,37,0,37,0,37,0,0,0,0,0,0,37,0,37,0,37,0,37,0,37,0,0,
