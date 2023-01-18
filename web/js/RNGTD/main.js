@@ -49,9 +49,11 @@ let activeTile = undefined;
 
 function animate() {
   c.drawImage(mapa, 0, 0, canvas.width, canvas.height);
-  enemies.forEach((enemy) => {
+
+  for (let i = enemies.length - 1; i >= 0; i--) {
+    const enemy = enemies[i];
     enemy.update();
-  });
+  }
 
   sitios.forEach((tile) => {
     tile.update(mouse);
@@ -76,7 +78,18 @@ function animate() {
       const xDiferencia = proyectil.enemy.center.x - proyectil.position.x;
       const yDiferencia = proyectil.enemy.center.y - proyectil.position.y;
       const distancia = Math.hypot(xDiferencia, yDiferencia);
+
+      //evento cuando un proyectil alcanza a un enemigo
       if (distancia < proyectil.enemy.radio + proyectil.radio) {
+        proyectil.enemy.vida -= 20;
+        if (proyectil.enemy.vida <= 0) {
+          const enemyIndex = enemies.findIndex((enemy) => {
+            return proyectil.enemy === enemy;
+          });
+          if (enemyIndex > -1) {
+            enemies.splice(enemyIndex, 1);
+          }
+        }
         torre.proyectiles.splice(i, 1);
       }
     }

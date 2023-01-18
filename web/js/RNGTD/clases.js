@@ -41,6 +41,7 @@ class Enemy {
       y: this.position.y + this.height / 2,
     };
     this.radio = 50;
+    this.vida = 100;
   }
   draw() {
     c.fillStyle = "red";
@@ -48,6 +49,18 @@ class Enemy {
     c.beginPath();
     c.arc(this.center.x, this.center.y, this.radio, 0, Math.PI * 2);
     c.fill();
+
+    //barra de vida
+    c.fillStyle = "red";
+    c.fillRect(this.position.x, this.position.y - 15, this.width, 10);
+
+    c.fillStyle = "lime";
+    c.fillRect(
+      this.position.x,
+      this.position.y - 15,
+      this.width * (this.vida / 100),
+      10
+    );
   }
   update() {
     this.draw();
@@ -115,7 +128,7 @@ class Torre {
       y: this.position.y + this.height / 2,
     };
     this.rango = 250;
-    this.velocidad = 100;
+    this.recarga = 100;
     this.proyectiles = [];
     this.target;
     this.frames = 0;
@@ -131,7 +144,7 @@ class Torre {
   }
   update() {
     this.draw();
-    if (this.frames % this.velocidad === 0 && this.target) {
+    if (this.frames % this.recarga === 0 && this.target) {
       this.proyectiles.push(
         new Proyectil({
           position: { x: this.center.x, y: this.center.y },
