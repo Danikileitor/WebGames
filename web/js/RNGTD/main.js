@@ -7,11 +7,44 @@ canvas.height = 768;
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
 
-const mapa1 = new Image();
-mapa1.onload = () => {
+const sitios2D = [];
+
+for (let i = 0; i < sitios1.length; i += 40) {
+  sitios2D.push(sitios1.slice(i, i + 40));
+}
+
+class Sitio {
+  constructor({ position = { x: 0, y: 0 } }) {
+    this.position = position;
+    this.size = 32;
+  }
+  draw() {
+    c.fillRect(this.position.x, this.position.y, this.size, this.size);
+  }
+}
+
+const sitios = [];
+
+sitios2D.forEach((row, y) => {
+  row.forEach((symbol, x) => {
+    if (symbol === 37) {
+      sitios.push(
+        new Sitio({
+          position: {
+            x: x * 32,
+            y: y * 32,
+          },
+        })
+      );
+    }
+  });
+});
+
+const mapa = new Image();
+mapa.onload = () => {
   animate();
 };
-mapa1.src = "assets/RNGTD/maps/mapa1.png";
+mapa.src = "assets/RNGTD/maps/mapa1.png";
 
 class Enemy {
   constructor({
@@ -66,9 +99,13 @@ for (let i = 1; i < 10; i++) {
 }
 
 function animate() {
-  c.drawImage(mapa1, 0, 0, canvas.width, canvas.height);
+  c.drawImage(mapa, 0, 0, canvas.width, canvas.height);
   enemies.forEach((enemy) => {
     enemy.update();
+  });
+
+  sitios.forEach((tile) => {
+    tile.draw();
   });
 
   requestAnimationFrame(animate);
