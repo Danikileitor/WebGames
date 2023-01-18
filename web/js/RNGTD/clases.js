@@ -72,10 +72,11 @@ class Enemy {
 class Torre {
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position;
-    this.size = 32;
+    this.width = 32 * 2;
+    this.height = 32;
   }
   draw() {
     c.fillStyle = "blue";
-    c.fillRect(this.position.x, this.position.y, this.size, this.size);
+    c.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 }

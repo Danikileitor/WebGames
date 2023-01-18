@@ -70,8 +70,13 @@ const mouse = {
 };
 
 canvas.addEventListener("click", (event) => {
-  if (activeTile) {
-    torres.push(new Torre({ position: { x: activeTile.position.x, y: activeTile.position.y } }));
+  if (activeTile && !activeTile.isOcupado) {
+    torres.push(
+      new Torre({
+        position: { x: activeTile.position.x, y: activeTile.position.y },
+      })
+    );
+    activeTile.isOcupado = true;
   }
 });
 
