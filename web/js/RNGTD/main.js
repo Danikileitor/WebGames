@@ -17,8 +17,10 @@ class Sitio {
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position;
     this.size = 32;
+    this.color = "rgba(0,0,255,0.15)";
   }
   draw() {
+    c.fillStyle = this.color;
     c.fillRect(this.position.x, this.position.y, this.size, this.size);
   }
 }
