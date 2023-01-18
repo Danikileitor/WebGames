@@ -9,7 +9,7 @@ section {
 section, section * {
   box-sizing: border-box;
 }
-h2{
+h2 {
   font-size: 2em;
 }
 article {
@@ -18,6 +18,24 @@ article {
   padding-bottom: inherit;
 }
 .borde {
+  position: relative;
   border: 5px solid black;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#F {
+  position: absolute;
+  font-size: 5em;
+  -webkit-text-stroke: 3px white;
+  display: none;
+}
+#vidas {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
+#vidas img{
+  width: 20px;
 }

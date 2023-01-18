@@ -50,9 +50,20 @@ function spawnEnemies(spawnCantidad) {
 const torres = [];
 let activeTile = undefined;
 let enemyCantidad = 3;
+let vidas = 10;
+mostrarVidas(vidas);
 spawnEnemies(enemyCantidad);
 
+function mostrarVidas(corazones) {
+  document.getElementById("vidas").innerHTML = "";
+  for (let i = 0; i < corazones; i++) {
+    document.getElementById("vidas").innerHTML +=
+      "<img src='assets/RNGTD/vida.gif'></img>";
+  }
+}
+
 function animate() {
+  const animationId = requestAnimationFrame(animate);
   c.drawImage(mapa, 0, 0, canvas.width, canvas.height);
 
   for (let i = enemies.length - 1; i >= 0; i--) {
@@ -60,7 +71,13 @@ function animate() {
     enemy.update();
 
     if (enemy.position.x > canvas.width) {
+      vidas--;
       enemies.splice(i, 1);
+      mostrarVidas(vidas);
+      if (vidas === 0) {
+        window.cancelAnimationFrame(animationId);
+        document.getElementById("F").style.display = "block";
+      }
     }
   }
 
@@ -110,8 +127,6 @@ function animate() {
       }
     }
   });
-
-  requestAnimationFrame(animate);
 }
 
 const mouse = {
