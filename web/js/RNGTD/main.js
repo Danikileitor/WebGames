@@ -37,15 +37,20 @@ mapa.onload = () => {
 mapa.src = "assets/RNGTD/maps/mapa1.png";
 
 const enemies = [];
-for (let i = 1; i < 10; i++) {
-  const xOffset = i * 150;
-  enemies.push(
-    new Enemy({ position: { x: camino1[1].x - xOffset, y: camino1[1].y } })
-  );
+
+function spawnEnemies(spawnCantidad) {
+  for (let i = 1; i <= spawnCantidad; i++) {
+    const xOffset = i * 150;
+    enemies.push(
+      new Enemy({ position: { x: camino1[1].x - xOffset, y: camino1[1].y } })
+    );
+  }
 }
 
 const torres = [];
 let activeTile = undefined;
+let enemyCantidad = 3;
+spawnEnemies(enemyCantidad);
 
 function animate() {
   c.drawImage(mapa, 0, 0, canvas.width, canvas.height);
@@ -90,6 +95,13 @@ function animate() {
             enemies.splice(enemyIndex, 1);
           }
         }
+
+        //evento cuando hay 0 enemigos
+        if (enemies.length === 0) {
+          enemyCantidad += 2;
+          spawnEnemies(enemyCantidad);
+        }
+
         torre.proyectiles.splice(i, 1);
       }
     }
