@@ -67,7 +67,7 @@ function mostrarVidas(corazones) {
   document.getElementById("vidas").innerHTML = "";
   for (let i = 0; i < corazones; i++) {
     document.getElementById("vidas").innerHTML +=
-      "<img src='assets/RNGTD/vida.gif'></img>";
+      "<img src='assets/Generic/vida.gif'></img>";
   }
 }
 
@@ -76,7 +76,7 @@ function muerte(aId) {
   document.getElementById("F").style.display = "block";
   for (let i = 0; i < 10; i++) {
     document.getElementById("vidas").innerHTML +=
-      "<img src='assets/RNGTD/loro.gif'></img>";
+      "<img src='assets/Generic/loro.gif'></img>";
   }
 }
 
