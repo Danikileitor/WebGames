@@ -52,12 +52,14 @@ const torres = [];
 let activeTile = undefined;
 let enemyCantidad = 3;
 let vidas = 10;
+let dinero = 100;
 let oleada = 0;
 mostrarVidas(vidas);
 spawnEnemies(enemyCantidad);
 
 function mostrarVidas(corazones) {
-  document.getElementById("vidas").style.minWidth = document.getElementById("dinero").style.width;
+  document.getElementById("vidas").style.minWidth =
+    document.getElementById("dinero").style.width;
   document.getElementById("vidas").innerHTML = "";
   for (let i = 0; i < corazones; i++) {
     document.getElementById("vidas").innerHTML +=
@@ -72,6 +74,10 @@ function muerte(aId) {
     document.getElementById("vidas").innerHTML +=
       "<img src='assets/RNGTD/loro.gif'></img>";
   }
+}
+
+function actualizarDinero(dineros) {
+  document.getElementById("monedas").innerHTML = dineros;
 }
 
 function animate() {
@@ -129,6 +135,8 @@ function animate() {
           });
           if (enemyIndex > -1) {
             enemies.splice(enemyIndex, 1);
+            dinero += 25;
+            actualizarDinero(dinero);
           }
         }
 
@@ -144,7 +152,9 @@ const mouse = {
 };
 
 canvas.addEventListener("click", (event) => {
-  if (activeTile && !activeTile.isOcupado) {
+  if (activeTile && !activeTile.isOcupado && dinero - 50 >= 0) {
+    dinero -= 50;
+    actualizarDinero(dinero);
     torres.push(
       new Torre({
         position: { x: activeTile.position.x, y: activeTile.position.y },
