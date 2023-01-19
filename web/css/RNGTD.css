@@ -35,13 +35,17 @@ article {
 #HUD {
   position: absolute;
   display: flex;
-  top: 3px;
+  top: 0;
   width: 100%;
 }
 #izquierda {
   position: absolute;
   display: flex;
-  left: 3px;
+  left: 0;
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff;
 }
@@ -54,13 +58,27 @@ article {
   position: absolute;
   display: block;
   text-align: right;
-  right: 3px;
+  right: 0;
+}
+#vidas {
+  width: fit-content;
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
 }
 #vidas img {
   width: 18px;
+  height: 24.141px;
   margin-left: 2px;
 }
 #dinero {
+  width: fit-content;
+  margin-left: auto;
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
   color: yellow;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
