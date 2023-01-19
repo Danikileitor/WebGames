@@ -1,5 +1,5 @@
 class Proyectil {
-  constructor({ position = { x: 0, y: 0 }, enemy }) {
+  constructor({ position = { x: 0, y: 0 }, enemy, imagesrc }) {
     this.position = position;
     this.velocity = { x: 0, y: 0 };
     this.radio = 10;
@@ -7,14 +7,20 @@ class Proyectil {
       x: this.position.x + this.radio,
       y: this.position.y + this.radio,
     };
+    this.image = new Image();
+    this.image.src = imagesrc;
     this.enemy = enemy;
     this.rapidez = 5;
   }
   draw() {
+    c.context.drawImage(this.image, this.position.x, this.position.y);
+
+    /*
     c.beginPath();
     c.arc(this.position.x, this.position.y, this.radio, 0, Math.PI * 2);
     c.fillStyle = "orange";
     c.fill();
+    */
   }
   update() {
     this.draw();

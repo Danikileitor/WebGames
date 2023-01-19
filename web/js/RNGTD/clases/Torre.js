@@ -1,5 +1,5 @@
 class Torre {
-  constructor({ position = { x: 0, y: 0 } }) {
+  constructor({ position = { x: 0, y: 0 }, proyectilimage }) {
     this.position = position;
     this.width = 32 * 2;
     this.height = 32;
@@ -10,6 +10,7 @@ class Torre {
     this.rango = 250;
     this.recarga = 100;
     this.proyectiles = [];
+    this.proyectilimage = proyectilimage;
     this.target;
     this.frames = 0;
   }
@@ -29,6 +30,7 @@ class Torre {
         new Proyectil({
           position: { x: this.center.x, y: this.center.y },
           enemy: this.target,
+          imagesrc: this.proyectilimage,
         })
       );
     }
