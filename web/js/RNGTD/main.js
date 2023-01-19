@@ -40,6 +40,10 @@ const enemies = [];
 
 function spawnEnemies(spawnCantidad) {
   oleada++;
+  if (oleada % 3 == 0) {
+    spawnCantidad = 3;
+  }
+  document.getElementById("oleada").innerHTML = oleada;
   for (let i = 1; i <= spawnCantidad; i++) {
     const xOffset = i * 150;
     enemies.push(
@@ -86,6 +90,9 @@ function animate() {
 
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i];
+    if (oleada >= 3) {
+      enemies[i].rapidez = 1 + Math.trunc(oleada / 3);
+    }
     enemy.update();
 
     if (enemy.position.x > canvas.width) {
@@ -98,6 +105,7 @@ function animate() {
 
   //evento cuando hay 0 enemigos
   if (enemies.length === 0) {
+    oleada++;
     enemyCantidad += 2;
     spawnEnemies(enemyCantidad);
   }
