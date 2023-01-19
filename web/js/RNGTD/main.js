@@ -39,6 +39,7 @@ mapa.src = "assets/RNGTD/maps/mapa1.png";
 const enemies = [];
 
 function spawnEnemies(spawnCantidad) {
+  oleada++;
   for (let i = 1; i <= spawnCantidad; i++) {
     const xOffset = i * 150;
     enemies.push(
@@ -51,6 +52,7 @@ const torres = [];
 let activeTile = undefined;
 let enemyCantidad = 3;
 let vidas = 10;
+let oleada = 0;
 mostrarVidas(vidas);
 spawnEnemies(enemyCantidad);
 
@@ -146,8 +148,12 @@ canvas.addEventListener("click", (event) => {
 });
 
 window.addEventListener("mousemove", (event) => {
-  mouse.x = event.clientX - document.getElementById("RNGTD").getBoundingClientRect().left;
-  mouse.y = event.clientY - document.getElementById("RNGTD").getBoundingClientRect().top;
+  mouse.x =
+    event.clientX -
+    document.getElementById("RNGTD").getBoundingClientRect().left;
+  mouse.y =
+    event.clientY -
+    document.getElementById("RNGTD").getBoundingClientRect().top;
 
   for (let i = 0; i < sitios.length; i++) {
     const tile = sitios[i];

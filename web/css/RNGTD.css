@@ -5,8 +5,9 @@ section {
   font-family: "Press Start 2P", cursive;
   position: relative;
   display: inline-block;
+  box-sizing: border-box;
 }
-section, section * {
+section * {
   box-sizing: border-box;
 }
 h2 {
@@ -31,11 +32,39 @@ article {
   -webkit-text-stroke: 3px white;
   display: none;
 }
-#vidas {
+#HUD {
   position: absolute;
-  right: 3px;
+  display: flex;
   top: 3px;
+  width: 100%;
 }
-#vidas img{
+#izquierda {
+  position: absolute;
+  display: flex;
+  left: 3px;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+#oleada {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+#derecha {
+  position: absolute;
+  display: block;
+  text-align: right;
+  right: 3px;
+}
+#vidas img {
+  width: 18px;
+  margin-left: 2px;
+}
+#dinero {
+  color: yellow;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+#dinero img {
   width: 20px;
 }
