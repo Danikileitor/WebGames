@@ -64,6 +64,15 @@ function mostrarVidas(corazones) {
   }
 }
 
+function muerte(aId) {
+  window.cancelAnimationFrame(aId);
+  document.getElementById("F").style.display = "block";
+  for (let i = 0; i < 10; i++) {
+    document.getElementById("vidas").innerHTML +=
+      "<img src='assets/RNGTD/loro.gif'></img>";
+  }
+}
+
 function animate() {
   const animationId = requestAnimationFrame(animate);
   c.drawImage(mapa, 0, 0, canvas.width, canvas.height);
@@ -76,10 +85,7 @@ function animate() {
       vidas--;
       enemies.splice(i, 1);
       mostrarVidas(vidas);
-      if (vidas === 0) {
-        window.cancelAnimationFrame(animationId);
-        document.getElementById("F").style.display = "block";
-      }
+      if (vidas === 0) muerte(animationId);
     }
   }
 
