@@ -57,6 +57,7 @@ mostrarVidas(vidas);
 spawnEnemies(enemyCantidad);
 
 function mostrarVidas(corazones) {
+  document.getElementById("vidas").style.minWidth = document.getElementById("dinero").style.width;
   document.getElementById("vidas").innerHTML = "";
   for (let i = 0; i < corazones; i++) {
     document.getElementById("vidas").innerHTML +=

@@ -61,7 +61,10 @@ article {
   right: 0;
 }
 #vidas {
-  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35.141px;
   padding: 3px;
   background-color: rgba(0, 0, 0, 0.3);
   border-left: 5px solid black;
@@ -69,7 +72,7 @@ article {
 }
 #vidas img {
   width: 18px;
-  height: 24.141px;
+  height: fit-content;
   margin-left: 2px;
 }
 #dinero {

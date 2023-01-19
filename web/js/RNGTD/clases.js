@@ -43,7 +43,7 @@ class Enemy {
     this.radio = 50;
     this.vida = 100;
     this.velocidad = { x: 0, y: 0 };
-    this.rapidez = 1;
+    this.rapidez = 50;
   }
   draw() {
     c.fillStyle = "red";
