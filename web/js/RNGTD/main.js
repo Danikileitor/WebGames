@@ -47,8 +47,12 @@ function spawnEnemies(spawnCantidad) {
   for (let i = 1; i <= spawnCantidad; i++) {
     const xOffset = i * 150;
     enemies.push(
-      new Enemy({ position: { x: camino1[1].x - xOffset, y: camino1[1].y } })
-    );
+      new Enemy({
+        position: { x: camino1[1].x - xOffset, y: camino1[1].y },
+        imagesrc: "assets/RNGTD/enemigos/orc.png",
+        imageframes: 7,
+      })
+    );console.log(enemies)
   }
 }
 
