@@ -13,7 +13,7 @@ class Proyectil {
     this.rapidez = 5;
   }
   draw() {
-    c.context.drawImage(this.image, this.position.x, this.position.y);
+    c.drawImage(this.image, this.position.x, this.position.y);
 
     /*
     c.beginPath();
