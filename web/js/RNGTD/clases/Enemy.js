@@ -1,11 +1,6 @@
-class Enemy {
-  constructor({
-    position = {
-      x: 0,
-      y: 0,
-    },
-  }) {
-    this.position = position;
+class Enemy extends Sprite {
+  constructor({ position = { x: 0, y: 0 }, imagesrc, imageframes = 1 }) {
+    super({ position, imageSrc: imagesrc, frames: { max: imageframes } });
     this.width = 100;
     this.height = 100;
     this.waypoint = 1;
@@ -19,10 +14,7 @@ class Enemy {
     this.rapidez = 1;
   }
   draw() {
-    c.fillStyle = "red";
-    c.beginPath();
-    c.arc(this.center.x, this.center.y, this.radio, 0, Math.PI * 2);
-    c.fill();
+    super.draw();
 
     //barra de vida
     c.fillStyle = "red";

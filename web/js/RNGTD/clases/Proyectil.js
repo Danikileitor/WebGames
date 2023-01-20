@@ -1,6 +1,6 @@
 class Proyectil extends Sprite {
   constructor({ position = { x: 0, y: 0 }, enemy, imagesrc }) {
-    super({ position });
+    super({ position, imageSrc: imagesrc });
     this.velocity = { x: 0, y: 0 };
     this.radio = 10;
     this.center = {
@@ -9,7 +9,6 @@ class Proyectil extends Sprite {
     };
     this.enemy = enemy;
     this.rapidez = 5;
-    this.image.src = imagesrc;
   }
   update() {
     this.draw();
