@@ -166,7 +166,7 @@ canvas.addEventListener("click", (event) => {
     torres.push(
       new Torre({
         position: { x: activeTile.position.x, y: activeTile.position.y },
-        proyectilimage: "assets/RNGTD/proyectiles/proyectile.png",
+        proyectilimage: "assets/RNGTD/proyectiles/projectile.png",
       })
     );
     activeTile.isOcupado = true;
