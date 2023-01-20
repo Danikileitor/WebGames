@@ -52,7 +52,7 @@ function spawnEnemies(spawnCantidad) {
         imagesrc: "assets/RNGTD/enemigos/orc.png",
         imageframes: 7,
       })
-    );console.log(enemies)
+    );
   }
 }
 
