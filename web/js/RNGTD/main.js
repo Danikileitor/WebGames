@@ -62,6 +62,7 @@ let enemyCantidad = 3;
 let vidas = 10;
 let dinero = 100;
 let oleada = 0;
+const explosiones = [];
 mostrarVidas(vidas);
 spawnEnemies(enemyCantidad);
 
@@ -104,6 +105,15 @@ function animate() {
       enemies.splice(i, 1);
       mostrarVidas(vidas);
       if (vidas === 0) muerte(animationId);
+    }
+  }
+
+  for (let i = explosiones.length - 1; i >= 0; i--) {
+    const explosion = explosiones[i];
+    explosion.draw();
+    explosion.update();
+    if (explosion.frames.current >= explosion.frames.max - 1) {
+      explosiones.splice(i, 1);
     }
   }
 
@@ -152,6 +162,13 @@ function animate() {
           }
         }
 
+        explosiones.push(
+          new Sprite({
+            position: { x: proyectil.position.x, y: proyectil.position.y },
+            imageSrc: "assets/RNGTD/proyectiles/explosiones/explosion.png",
+            frames: { max: 4 },
+          })
+        );
         torre.proyectiles.splice(i, 1);
       }
     }
@@ -170,10 +187,17 @@ canvas.addEventListener("click", (event) => {
     torres.push(
       new Torre({
         position: { x: activeTile.position.x, y: activeTile.position.y },
+        imagesrc: "assets/RNGTD/torres/tower.png",
+        imageframes: 19,
+        offsetY: 112,
+        disparoframe: 6,
         proyectilimage: "assets/RNGTD/proyectiles/projectile.png",
       })
     );
     activeTile.isOcupado = true;
+    torres.sort((a, b) => {
+      return a.position.y - b.position.y;
+    });
   }
 });
 

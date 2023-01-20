@@ -30,6 +30,7 @@ class Enemy extends Sprite {
   }
   update() {
     this.draw();
+    super.update();
 
     const camino = camino1[this.waypoint];
     const xDistance = camino.x - this.center.x;
