@@ -1,26 +1,15 @@
-class Proyectil {
+class Proyectil extends Sprite {
   constructor({ position = { x: 0, y: 0 }, enemy, imagesrc }) {
-    this.position = position;
+    super({ position });
     this.velocity = { x: 0, y: 0 };
     this.radio = 10;
     this.center = {
       x: this.position.x + this.radio,
       y: this.position.y + this.radio,
     };
-    this.image = new Image();
-    this.image.src = imagesrc;
     this.enemy = enemy;
     this.rapidez = 5;
-  }
-  draw() {
-    c.drawImage(this.image, this.position.x, this.position.y);
-
-    /*
-    c.beginPath();
-    c.arc(this.position.x, this.position.y, this.radio, 0, Math.PI * 2);
-    c.fillStyle = "orange";
-    c.fill();
-    */
+    this.image.src = imagesrc;
   }
   update() {
     this.draw();
