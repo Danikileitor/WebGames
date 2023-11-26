@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="Chess, Engine, Javascript, Play Chess, Chess Program, Javascript Chess, Game">
+	<link rel="stylesheet" href="css/principal.css">
+	<link rel="stylesheet" href="css/DNKchess.css" type="text/css">
+	<title>[DNK]{WEB}[GAMES] - DNK Chess</title>
+	<script type="text/javascript"> if (!window.console) console = { log: function () { } }; </script>
+</head>
+
+<body>
+	<header id="inicio">
+		<img src="img/general/logo.ico">
+		<marquee behavior="alternate">
+			<h1>[DNK]{WEB}[GAMES]</h1>
+		</marquee>
+	</header>
+	<nav>
+		<ul>
+			<li>
+				<a href="index.html" title="Inicio"><img src="img/general/home.svg" width="15"> Home</a>
+			</li>
+			<li class="desplegable">
+				<a href="#" title="Juegos"><img src="img/general/joystick.svg" width="15"> Juegos</a>
+				<a href="RNGversus.html" title="RNGversus" class="contenido">RNGversus</a>
+				<a href="RNGTD.html" title="RNGTD" class="contenido">RNGTD</a>
+				<a href="colores.html" title="Colores" class="contenido">Colores</a>
+				<a href="DNKchess.html" title="Ajedrez" class="contenido">Ajedrez</a>
+			</li>
+			<li class="desplegable">
+				<a href="#" title="Herramientas"><img src="img/general/tool.svg" width="15"> Herramientas</a>
+				<a href="minisix.html" title="Minisix" class="contenido">Minisix</a>
+			</li>
+		</ul>
+		<audio id="audio" controls loop autoplay>
+			<source src="audio/helio-bar.wav" type="audio/wav">
+		</audio>
+	</nav>
+
+	<br>
+
+	<div id="FenInDiv">
+		<input type="text" id="fenIn" />
+		<button type="button" id="SetFen">Set Position</button>
+	</div>
+	<div id="ThinkingImageDiv">
+
+	</div>
+	<div id="Board">
+	</div>
+	<div id="CurrentFenDiv">
+		<span id="currentFenSpan"></span>
+	</div>
+	<span id="LoadingBook">Loading book, please wait....</span><br />
+	<div id="EngineOutput">Thinking Time: <br />
+		<select id="ThinkTimeChoice">
+			<option value="1">1s</option>
+			<option value="2">2s</option>
+			<option value="4">4s</option>
+			<option value="6">6s</option>
+			<option value="8">8s</option>
+			<option value="10">10s</option>
+		</select><br /><br /><br />
+
+		<span id="BestOut">BestMove:</span><br />
+		<span id="DepthOut">Depth:</span><br />
+		<span id="ScoreOut">Score:</span><br />
+		<span id="NodesOut">Nodes:</span><br />
+		<span id="OrderingOut">Ordering:</span><br />
+		<span id="TimeOut">Time:</span><br /><br />
+		<button type="button" id="SearchButton">Move Now</button><br />
+		<button type="button" id="NewGameButton">New Game</button><br />
+		<button type="button" id="FlipButton">Flip Board</button><br /><br />
+		<button type="button" id="TakeButton">Take Back</button><br /><br /><br />
+		<span id="GameStatus"></span>
+	</div>
+	<aside>
+		<a href="#inicio"><img src="img/general/up.svg" width="50px"></a>
+	</aside>
+	<footer>
+		<figure class="logos">
+			<a href="https://github.com/Danikileitor" alt="GitHub"><img src="img/rrss/github.svg"></a>
+			<a href="https://twitter.com/danikileitor" alt="Twitter"><img src="img/rrss/twitter.svg"></a>
+			<a href="https://www.reddit.com/user/Danikileitor/" alt="Reddit"><img src="img/rrss/reddit.svg"></a>
+			<a href="https://www.youtube.com/Danikileitor" alt="YouTube"><img src="img/rrss/youtube.svg"></a>
+		</figure>
+		<p>
+			Copyright &copy; 2023 Daniel Marcos Guerra Gómez - All Rights Reserved.
+		</p>
+	</footer>
+
+	<script src="js/principal.js"></script>
+	<script src="js/DNKchess/jquery-1.10.1.min.js"></script>
+	<script src="js/DNKchess/defs.js"></script>
+	<script src="js/DNKchess/io.js"></script>
+	<script src="js/DNKchess/board.js"></script>
+	<script src="js/DNKchess/movegen.js"></script>
+	<script src="js/DNKchess/makemove.js"></script>
+	<script src="js/DNKchess/perft.js"></script>
+	<script src="js/DNKchess/evaluate.js"></script>
+	<script src="js/DNKchess/pvtable.js"></script>
+	<script src="js/DNKchess/search.js"></script>
+	<script src="js/DNKchess/protocol.js"></script>
+	<script src="js/DNKchess/gui.js"></script>
+	<script src="js/DNKchess/main.js"></script>
+</body>
+
+</html>
